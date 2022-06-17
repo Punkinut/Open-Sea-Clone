@@ -20,9 +20,8 @@ function Hero() {
           </div>
           <div className={styles.cardContainer}>
             <img
-              className="rounded-t-lg"
+              className={styles.image}
               src="https://lh3.googleusercontent.com/vrdBQXjX4xDyWrbJ3ZnIwo8o7xZ9QAjXd_7V3PucpdMI059ecr8MFluIyH9kgXsb2b_FXG420yIghcKvCXBh9UA4UAbRV8kYF8VK1Q=s0"
-              width={500}
             />
             <div className={styles.infoContainer}>
               {" "}
