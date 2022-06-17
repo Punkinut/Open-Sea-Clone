@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "../../organisms/Navbar";
+import Login from "../../templates/Login";
 import { useWeb3 } from "@3rdweb/hooks";
 import styles from "./styles";
-import { IoMdWallet } from "react-icons/io";
 
 function MetaMaskAuth({ children }) {
   const { address, connectWallet } = useWeb3();
+
+  useEffect(() => {
+    if (!address) return;
+    (async () => {
+      //   const userDoc = {
+      //     _type: "users",
+      //     _id: address,
+      //     userName: "Unnamed",
+      //     walletAddress: address,
+      //   };
+      //   const result = await client.createIfNotExists(userDoc);
+    })();
+  }, [address]);
+
   return (
     <div className={styles.wrapper}>
       {address ? (
@@ -14,20 +28,7 @@ function MetaMaskAuth({ children }) {
           {children}
         </>
       ) : (
-        <div className={styles.walletConnectWrapper}>
-          <div className={styles.semiWrapper}>
-            <button
-              className={styles.button}
-              onClick={() => connectWallet("injected")}
-            >
-              Connect Wallet
-              <IoMdWallet />
-            </button>
-            <div className={styles.details}>
-              You need Chrome to be <br /> able to run this app
-            </div>
-          </div>
-        </div>
+        <Login connectWallet={connectWallet} />
       )}
     </div>
   );
