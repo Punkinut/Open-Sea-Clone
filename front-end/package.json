@@ -3,13 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "sanity": "cd studio && sanity start",
+    "dev": "concurrently \" npm run sanity \" \" next dev\"",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "@3rdweb/hooks": "^1.9.2",
+    "@sanity/client": "^3.3.2",
+    "concurrently": "^7.2.2",
     "next": "12.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0",
