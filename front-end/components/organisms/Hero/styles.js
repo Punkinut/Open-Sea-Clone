@@ -4,7 +4,7 @@ const styles = {
   contentWrapper: `md:px-16 flex gap-x-14 h-screen relative justify-center flex-wrap items-center `,
   copyContainer: `w-1/2`,
   title: `relative text-white text-[35px] lg:text-[46px] font-semibold text-center lg:text-left`,
-  description: `text-[#8a939b] container-[400px] text-[18px] lg:text-[24px]  mt-[0.8rem] mb-[2.5rem] text-center lg:text-left`,
+  description: `text-white opacity-80 container-[400px] text-[18px] lg:text-[24px]  mt-[0.8rem] mb-[2.5rem] text-center lg:text-left`,
   ctaContainer: `flex justify-center lg:justify-start`,
   accentedButton: ` relative text-lg font-semibold px-12 py-4 bg-[#2181e2] rounded-lg mr-5 text-white hover:bg-[#42a0ff] cursor-pointer`,
   button: ` relative text-lg font-semibold px-12 py-4 bg-[#363840] rounded-lg mr-5 text-[#e4e8ea] hover:bg-[#4c505c] cursor-pointer`,
