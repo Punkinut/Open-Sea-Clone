@@ -1,12 +1,20 @@
 import "../styles/globals.css";
-import Navbar from "../components/organisms/Navbar";
+import { ThirdwebWeb3Provider } from "@3rdweb/hooks";
+import MetaMaskAuth from "../components/wrappers/MetaMaskAuth";
+
+const supportedChainIds = [4];
+const connectors = { injected: {} };
 
 function MyApp({ Component, pageProps }) {
   return (
-    <>
-      <Navbar />
-      <Component {...pageProps} />
-    </>
+    <ThirdwebWeb3Provider
+      supportedChainIds={supportedChainIds}
+      connectors={connectors}
+    >
+      <MetaMaskAuth>
+        <Component {...pageProps} />
+      </MetaMaskAuth>
+    </ThirdwebWeb3Provider>
   );
 }
 
