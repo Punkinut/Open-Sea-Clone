@@ -8,10 +8,11 @@ function Hero() {
         <div className={styles.contentWrapper}>
           <div className={styles.copyContainer}>
             <div className={styles.title}>
-              Discover, collect, and sell extraordinary NFTs
+              Discover, scram, and go bankrupt with NFTs
             </div>
             <div className={styles.description}>
-              OpenSea is the world's first and largest NFT marketplace
+              OpenSea is the world's first and largest 'centralised' NFT
+              marketplace to pick your pocket
             </div>
             <div className={styles.ctaContainer}>
               <button className={styles.accentedButton}>Explore</button>
@@ -31,12 +32,12 @@ function Hero() {
                 alt=""
               />
               <div className={styles.author}>
-                <div className={styles.name}>Jolly</div>
+                <div className={styles.name}>Ponzi</div>
                 <a
                   className="text-[#1868b7]"
                   href="https://opensea.io/assets/0x495f947276749ce646f68ac8c248420045cb7b5e/2324922113504035910649522729980423429926362207300810036887725141691069366277"
                 >
-                  hola-kanola
+                  hola-scamola
                 </a>
               </div>
             </div>

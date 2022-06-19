@@ -12,7 +12,7 @@ function Navbar() {
       <Link href="/">
         <div className={styles.logoContainer}>
           <Image src={openseaLogo} height={35} width={35} />
-          <div className={styles.logoText}>OpenSea</div>
+          <div className={styles.logoText}>OpenDoink</div>
         </div>
       </Link>
       <div className={styles.searchBar}>
