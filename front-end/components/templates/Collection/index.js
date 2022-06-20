@@ -11,6 +11,7 @@ import { AiOutlineInstagram } from "react-icons/ai";
 import { AiOutlineTwitter } from "react-icons/ai";
 import { HiDotsVertical } from "react-icons/hi";
 import styles from "./styles";
+import CollectionBanner from "../../atoms/collectionBanner";
 import NFTCard from "../../molecules/NFTCard";
 
 function CollectionTemplate() {
@@ -57,13 +58,7 @@ function CollectionTemplate() {
 
   return (
     <div className="overflow-hidden">
-      <div className={styles.bannerImageContainer}>
-        <img
-          className={styles.bannerImage}
-          src={loadingImage(collection?.bannerImageUrl)}
-          alt="banner"
-        />
-      </div>
+      <CollectionBanner image={collection?.bannerImageUrl} />
       <div className={styles.infoContainer}>
         <div className={styles.midRow}>
           <img

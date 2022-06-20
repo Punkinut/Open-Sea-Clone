@@ -1,6 +1,4 @@
 const styles = {
-  bannerImageContainer: `h-[30vh] w-screen overflow-hidden flex justify-center items-start`,
-  bannerImage: `w-full object-cover`,
   infoContainer: `w-screen px-4`,
   midRow: `w-full flex justify-center text-white`,
   endRow: `w-full flex justify-end text-white`,
