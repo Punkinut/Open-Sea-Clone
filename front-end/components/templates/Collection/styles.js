@@ -1,12 +1,6 @@
 const styles = {
   infoContainer: `w-screen px-4`,
   midRow: `w-full flex justify-center text-white`,
-  endRow: `w-full flex justify-end text-white`,
-  socialIconsContainer: `flex text-3xl mb-[-2rem]`,
-  socialIconsWrapper: `w-44`,
-  socialIconsContent: `flex container justify-between text-[1.4rem] border-2 rounded-lg px-2`,
-  socialIcon: `my-2`,
-  divider: `border-r-2`,
   title: `text-5xl font-bold mb-4`,
   createdBy: `text-lg mb-4`,
   statsContainer: `w-[44vw] flex justify-between py-4 border border-[#151b22] rounded-xl mb-4`,

@@ -5,14 +5,10 @@ import { client } from "../../../lib/sanityClient";
 import fetchCollectionData from "../../../utils/sanityApi/fetchCollectionData";
 import nftModuleSDK from "../../../utils/thirdWebSDK/nftModule";
 import marketPlaceModuleSDK from "../../../utils/thirdWebSDK/marketPlaceModule";
-import loadingImage from "../../../utils/loadingImage";
-import { CgWebsite } from "react-icons/cg";
-import { AiOutlineInstagram } from "react-icons/ai";
-import { AiOutlineTwitter } from "react-icons/ai";
-import { HiDotsVertical } from "react-icons/hi";
 import styles from "./styles";
 import CollectionBanner from "../../atoms/collectionBanner";
 import CollectionProfilePicture from "../../atoms/collectionProfileImage";
+import SocialMediaRow from "../../molecules/SocialMediaRow";
 import NFTCard from "../../molecules/NFTCard";
 
 function CollectionTemplate() {
@@ -62,29 +58,7 @@ function CollectionTemplate() {
       <CollectionBanner image={collection?.bannerImageUrl} />
       <div className={styles.infoContainer}>
         <CollectionProfilePicture image={collection?.imageUrl} />
-        <div className={styles.endRow}>
-          <div className={styles.socialIconsContainer}>
-            <div className={styles.socialIconsWrapper}>
-              <div className={styles.socialIconsContent}>
-                <div className={styles.socialIcon}>
-                  <CgWebsite />
-                </div>
-                <div className={styles.divider} />
-                <div className={styles.socialIcon}>
-                  <AiOutlineInstagram />
-                </div>
-                <div className={styles.divider} />
-                <div className={styles.socialIcon}>
-                  <AiOutlineTwitter />
-                </div>
-                <div className={styles.divider} />
-                <div className={styles.socialIcon}>
-                  <HiDotsVertical />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <SocialMediaRow />
         <div className={styles.midRow}>
           <div className={styles.title}>{collection.title}</div>
         </div>
