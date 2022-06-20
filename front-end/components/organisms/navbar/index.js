@@ -4,7 +4,7 @@ import React from "react";
 import styles from "./styles";
 import openseaLogo from "../../../assets/open-sea-logo.svg";
 import { AiOutlineSearch } from "react-icons/ai";
-import HeaderItems from "../../moleculs/HeaderItems";
+import HeaderItems from "../../molecules/HeaderItems";
 
 function Navbar() {
   return (

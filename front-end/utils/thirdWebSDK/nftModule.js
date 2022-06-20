@@ -1,6 +1,6 @@
 import { ThirdwebSDK } from "@3rdweb/sdk";
 
-const nftModuleSDK = (provider) => {
+const nftModuleSDK = (provider, collectionId) => {
   if (!provider) return;
 
   const sdk = new ThirdwebSDK(
