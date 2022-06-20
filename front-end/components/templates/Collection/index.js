@@ -1,8 +1,11 @@
 import React, { useState, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import styles from "./styles";
 import { useWeb3 } from "@3rdweb/hooks";
+import { client } from "../../../lib/sanityClient";
+import { ThirdwebSDK } from "@3rdweb/sdk";
+import fetchCollectionData from "../../../utils/sanityApi/fetchCollectionData";
+import styles from "./styles";
 
 function CollectionTemplate() {
   const router = useRouter();
@@ -24,15 +27,6 @@ function CollectionTemplate() {
     return sdk.getNFTModule(collectionId);
   }, [provider]);
 
-  useEffect(() => {
-    if (!nftModule) return;
-    (async () => {
-      const nfts = await nftModule.getAll();
-
-      setNfts(nfts);
-    })();
-  }, [nftModule]);
-
   const marketPlaceModule = useMemo(() => {
     if (!provider) return;
 
@@ -47,24 +41,29 @@ function CollectionTemplate() {
   }, [provider]);
 
   useEffect(() => {
+    if (!nftModule) return;
+    (async () => {
+      const nfts = await nftModule.getAll();
+
+      setNfts(nfts);
+    })();
+  }, [nftModule]);
+
+  useEffect(() => {
     if (!marketPlaceModule) return;
     (async () => {
-      setListings(await marketPlaceModule.getAllListings());
+      const marketPlace = await marketPlaceModule.getAllListings();
+
+      setListings(marketPlace);
     })();
   }, [marketPlaceModule]);
 
-  // *[_type == "marketItems" && contractAddress == "0xa4a172FAC67BD11F4329366d1fb02e9da309b7aF" ] {
-  //   "imageUrl": profileImage.asset->url,
-  //   "bannerImageUrl": bannerImage.asset->url,
-  //   volumeTraded,
-  //   createdBy,
-  //   contractAddress,
-  //   "creator": createdBy->userName,
-  //   title,
-  //   floorPrice,
-  //   "allOwners": owners[]->,
-  //   description
-  // }
+  useEffect(() => {
+    (async () => {
+      const collectionData = await fetchCollectionData(client, collectionId);
+      setCollection(collectionData[0]);
+    })();
+  }, [collectionId]);
 
   return (
     <Link href="/">
