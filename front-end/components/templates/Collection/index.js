@@ -5,6 +5,8 @@ import { useWeb3 } from "@3rdweb/hooks";
 import { client } from "../../../lib/sanityClient";
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import fetchCollectionData from "../../../utils/sanityApi/fetchCollectionData";
+import nftModuleSDK from "../../../utils/thirdWebSDK/nftModule";
+import marketPlaceModuleSDK from "../../../utils/thirdWebSDK/marketPlaceModule";
 import styles from "./styles";
 
 function CollectionTemplate() {
@@ -12,36 +14,23 @@ function CollectionTemplate() {
   const { provider } = useWeb3;
   const { collectionId } = router.query;
 
-  const [collection, setCollection] = useState({});
   const [nfts, setNfts] = useState([]);
   const [listings, setListings] = useState([]);
+  const [collection, setCollection] = useState({});
 
   const nftModule = useMemo(() => {
-    if (!provider) return;
-
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      "https://eth-rinkeby.alchemyapi.io/v2/pPF9_Kp1JQRfPCWdvc606RKVVQXX9WcM"
-    );
-
-    return sdk.getNFTModule(collectionId);
+    nftModuleSDK(provider);
   }, [provider]);
 
   const marketPlaceModule = useMemo(() => {
-    if (!provider) return;
-
-    const sdk = new ThirdwebSDK(
-      provider.getSigner(),
-      "https://eth-rinkeby.alchemyapi.io/v2/pPF9_Kp1JQRfPCWdvc606RKVVQXX9WcM"
-    );
-
-    return sdk.getMarketplaceModule(
-      "0x84E88B1C61b3594703f7Fb23B051F1D796639132"
-    );
+    marketPlaceModuleSDK(provider);
   }, [provider]);
 
   useEffect(() => {
-    if (!nftModule) return;
+    if (!nftModule) {
+      console.log("NO NFT MODULE");
+      return;
+    }
     (async () => {
       const nfts = await nftModule.getAll();
 
@@ -50,7 +39,10 @@ function CollectionTemplate() {
   }, [nftModule]);
 
   useEffect(() => {
-    if (!marketPlaceModule) return;
+    if (!marketPlaceModule) {
+      console.log("NO MARKETPLACE MODULE");
+      return;
+    }
     (async () => {
       const marketPlace = await marketPlaceModule.getAllListings();
 
