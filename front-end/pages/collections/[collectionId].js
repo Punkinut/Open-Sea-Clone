@@ -1,14 +1,8 @@
 import React from "react";
-import { useRouter } from "next/router";
-import Link from "next/link";
+import CollectionTemplate from "../../components/templates/Collection";
 
 function Collection() {
-  const router = useRouter();
-  return (
-    <Link href="/">
-      <h2>{router.query.collectionId}</h2>
-    </Link>
-  );
+  return <CollectionTemplate />;
 }
 
 export default Collection;
