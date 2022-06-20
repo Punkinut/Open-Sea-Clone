@@ -4,6 +4,7 @@ import Login from "../../templates/Login";
 import { useWeb3 } from "@3rdweb/hooks";
 import styles from "./styles";
 import { client } from "../../../lib/sanityClient";
+import welcomeUser from "../../../utils/welcomeUser";
 
 function MetaMaskAuth({ children }) {
   const { address, connectWallet } = useWeb3();
@@ -18,6 +19,7 @@ function MetaMaskAuth({ children }) {
         walletAddress: address,
       };
       const result = await client.createIfNotExists(userDoc);
+      welcomeUser(result.userName);
     })();
   }, [address]);
 
