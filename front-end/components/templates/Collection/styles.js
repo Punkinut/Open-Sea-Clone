@@ -2,7 +2,6 @@ const styles = {
   infoContainer: `w-screen px-4`,
   midRow: `w-full flex justify-center text-white`,
   endRow: `w-full flex justify-end text-white`,
-  profileImg: `w-40 h-40 object-cover rounded-full border-2 border-[#202225] mt-[-4rem]`,
   socialIconsContainer: `flex text-3xl mb-[-2rem]`,
   socialIconsWrapper: `w-44`,
   socialIconsContent: `flex container justify-between text-[1.4rem] border-2 rounded-lg px-2`,
