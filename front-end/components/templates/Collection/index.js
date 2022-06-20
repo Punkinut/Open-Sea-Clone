@@ -3,7 +3,6 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { useWeb3 } from "@3rdweb/hooks";
 import { client } from "../../../lib/sanityClient";
-import { ThirdwebSDK } from "@3rdweb/sdk";
 import fetchCollectionData from "../../../utils/sanityApi/fetchCollectionData";
 import nftModuleSDK from "../../../utils/thirdWebSDK/nftModule";
 import marketPlaceModuleSDK from "../../../utils/thirdWebSDK/marketPlaceModule";
