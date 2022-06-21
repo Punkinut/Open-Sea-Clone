@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BiHeart } from "react-icons/bi";
 import Router from "next/router";
 import styles from "./styles";
+import EthLogo from "../../atoms/ethLogo";
 
 function NFTCard({ nftItem, title, listings }) {
   const [isListed, setIsListed] = useState(false);
@@ -37,11 +38,7 @@ function NFTCard({ nftItem, title, listings }) {
             <div className={styles.infoRight}>
               <div className={styles.priceTag}>Price</div>
               <div className={styles.priceValue}>
-                <img
-                  className={styles.ethLogo}
-                  alt="eth"
-                  src="https://openseauserdata.com/files/6f8e2979d428180222796ff4a33ab929.svg"
-                />
+                <EthLogo className={styles.ethLogo} />
                 {price}
               </div>
             </div>

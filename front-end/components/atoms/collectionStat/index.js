@@ -1,17 +1,12 @@
 import React from "react";
+import EthLogo from "../../atoms/ethLogo";
 import styles from "./styles";
 
 function CollectionStat({ statValue, statName, ethLogo = false }) {
   return (
     <div className={styles.collectionStat}>
       <div className={styles.statValue}>
-        {ethLogo && (
-          <img
-            className={styles.ethLogo}
-            alt="eth"
-            src="https://openseauserdata.com/files/6f8e2979d428180222796ff4a33ab929.svg"
-          />
-        )}
+        {ethLogo && <EthLogo className={styles.ethLogo} />}
         {statValue}
       </div>
       <div className={styles.statName}>{statName}</div>
