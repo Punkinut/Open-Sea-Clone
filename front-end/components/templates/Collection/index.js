@@ -73,7 +73,7 @@ function CollectionTemplate() {
         <div className={styles.midRow}>
           <div className={styles.description}>{collection.description}</div>
         </div>
-        {/* <div className="flex flex-wrap">
+        <div className="flex flex-wrap">
           {nfts.map((nftItem, index) => (
             <NFTCard
               key={index}
@@ -82,7 +82,7 @@ function CollectionTemplate() {
               listings={listings}
             />
           ))}
-        </div> */}
+        </div>
       </div>
     </div>
   );

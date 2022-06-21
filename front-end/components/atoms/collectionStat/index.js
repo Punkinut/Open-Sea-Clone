@@ -8,6 +8,7 @@ function CollectionStat({ statValue, statName, ethLogo = false }) {
         {ethLogo && (
           <img
             className={styles.ethLogo}
+            alt="eth"
             src="https://openseauserdata.com/files/6f8e2979d428180222796ff4a33ab929.svg"
           />
         )}
