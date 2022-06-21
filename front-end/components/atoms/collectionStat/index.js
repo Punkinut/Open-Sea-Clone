@@ -7,7 +7,7 @@ function CollectionStat({ statValue, statName, ethLogo = false }) {
     <div className={styles.collectionStat}>
       <div className={styles.statValue}>
         {ethLogo && <EthLogo className={styles.ethLogo} />}
-        {statValue}
+        {statValue ? statValue : "..."}
       </div>
       <div className={styles.statName}>{statName}</div>
     </div>

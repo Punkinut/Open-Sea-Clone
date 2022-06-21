@@ -11,6 +11,7 @@ import CollectionProfilePicture from "../../atoms/collectionProfileImage";
 import SocialMediaRow from "../../molecules/SocialMediaRow";
 import CollectionStats from "../../molecules/CollectionStats";
 import NFTCard from "../../molecules/NFTCard";
+import LoadingSpinner from "../../atoms/loadingSpinner";
 
 function CollectionTemplate() {
   const router = useRouter();
@@ -73,8 +74,9 @@ function CollectionTemplate() {
         <div className={styles.midRow}>
           <div className={styles.description}>{collection.description}</div>
         </div>
+        {nfts.length == 0 && <LoadingSpinner />}
         <div className="flex flex-wrap">
-          {nfts.map((nftItem, index) => (
+          {nfts?.map((nftItem, index) => (
             <NFTCard
               key={index}
               nftItem={nftItem}
