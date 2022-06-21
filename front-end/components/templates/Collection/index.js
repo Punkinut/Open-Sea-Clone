@@ -17,6 +17,8 @@ import { observer } from "mobx-react-lite";
 
 function CollectionTemplate() {
   const [store] = useState(() => new GlobalStore());
+  const { state } = store;
+  const { nfts, listings, collection } = state;
 
   const router = useRouter();
   const { provider } = useWeb3();
@@ -57,38 +59,31 @@ function CollectionTemplate() {
 
   return (
     <div className="overflow-hidden">
-      <CollectionBanner image={store.state.collection?.bannerImageUrl} />
+      <CollectionBanner image={collection?.bannerImageUrl} />
       <div className={styles.infoContainer}>
-        <CollectionProfilePicture image={store.state.collection?.imageUrl} />
+        <CollectionProfilePicture image={collection?.imageUrl} />
         <SocialMediaRow />
         <div className={styles.midRow}>
-          <div className={styles.title}>{store.state.collection.title}</div>
+          <div className={styles.title}>{collection.title}</div>
         </div>
         <div className={styles.midRow}>
           <div className={styles.createdBy}>
             Created by{" "}
-            <span className="text-[#2081e2]">
-              {store.state.collection.creator}
-            </span>
+            <span className="text-[#2081e2]">{collection.creator}</span>
           </div>
         </div>
-        <CollectionStats
-          collection={store.state.collection}
-          nfts={store.state.nfts}
-        />
+        <CollectionStats collection={collection} nfts={nfts} />
         <div className={styles.midRow}>
-          <div className={styles.description}>
-            {store.state.collection.description}
-          </div>
+          <div className={styles.description}>{collection.description}</div>
         </div>
-        {store.state.nfts.length == 0 && <LoadingSpinner />}
+        {nfts.length == 0 && <LoadingSpinner />}
         <div className="flex flex-wrap">
-          {store.state.nfts?.map((nftItem, index) => (
+          {nfts?.map((nftItem, index) => (
             <NFTCard
               key={index}
               nftItem={nftItem}
-              title={store.state.collection.title}
-              listings={store.state.listings}
+              title={collection.title}
+              listings={listings}
             />
           ))}
         </div>
