@@ -20,7 +20,7 @@ function NftCollectionDetails({
             <div className={styles.collectionName}>{title}</div>
           </Link>
           <Link href={nftLink}>
-            <div className={styles.assetName}>{name}</div>
+            <div className={styles.assetName}>{name ? name : "..."}</div>
           </Link>
         </div>
         {isListed && (
@@ -28,7 +28,7 @@ function NftCollectionDetails({
             <div className={styles.priceTag}>Price</div>
             <div className={styles.priceValue}>
               <EthLogo className={styles.ethLogo} />
-              {price}
+              {price ? price : "..."}
             </div>
           </div>
         )}
