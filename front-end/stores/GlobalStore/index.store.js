@@ -1,6 +1,6 @@
 import { makeAutoObservable } from "mobx";
 
-export class UniversalStore {
+export class GlobalStore {
   state;
 
   static getInitialState() {
@@ -8,7 +8,7 @@ export class UniversalStore {
   }
 
   constructor() {
-    this.state = UniversalStore.getInitialState();
+    this.state = GlobalStore.getInitialState();
     makeAutoObservable(this);
   }
 }
