@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
-import { BiHeart } from "react-icons/bi";
-import Router from "next/router";
 import styles from "./styles";
-import EthLogo from "../../atoms/ethLogo";
 import Link from "next/link";
+import NftCollectionDetails from "../../atoms/nftCollectionDetails";
 
 function NFTCard({ nftItem, title, listings }) {
   const [isListed, setIsListed] = useState(false);
@@ -30,33 +28,14 @@ function NFTCard({ nftItem, title, listings }) {
           />
         </Link>
       </div>
-      <div className={styles.details}>
-        <div className={styles.info}>
-          <div className={styles.infoLeft}>
-            <Link href={nftLink}>
-              <div className={styles.collectionName}>{title}</div>
-            </Link>
-            <Link href={nftLink}>
-              <div className={styles.assetName}>{nftItem.name}</div>
-            </Link>
-          </div>
-          {isListed && (
-            <div className={styles.infoRight}>
-              <div className={styles.priceTag}>Price</div>
-              <div className={styles.priceValue}>
-                <EthLogo className={styles.ethLogo} />
-                {price}
-              </div>
-            </div>
-          )}
-        </div>
-        <div className={styles.likes}>
-          <span className={styles.likeIcon}>
-            <BiHeart />
-          </span>{" "}
-          {nftItem.likes}
-        </div>
-      </div>
+      <NftCollectionDetails
+        title={title}
+        name={nftItem.name}
+        isListed={isListed}
+        price={price}
+        likes={nftItem.likes}
+        nftLink={nftLink}
+      />
     </div>
   );
 }
