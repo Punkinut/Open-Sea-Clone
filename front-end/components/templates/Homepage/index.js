@@ -1,14 +1,8 @@
-import { useState, useEffect } from "react";
+import React from "react";
 import Hero from "../../organisms/Hero";
 import { Toaster } from "react-hot-toast";
-import { observer } from "mobx-react-lite";
-import { GlobalStore } from "../../../stores/GlobalStore/index.store";
 
 function Homepage() {
-  const [store] = useState(() => new GlobalStore());
-  useEffect(() => {
-    console.log(JSON.stringify(store.state));
-  }, [store]);
   return (
     <>
       <Toaster position="bottom-left" reverseOrder={false} />
@@ -17,4 +11,4 @@ function Homepage() {
   );
 }
 
-export default observer(Homepage);
+export default Homepage;
