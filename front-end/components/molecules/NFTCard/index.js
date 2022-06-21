@@ -7,7 +7,7 @@ function NFTCard({ nftItem, title, listings }) {
   const [isListed, setIsListed] = useState(false);
   const [price, setPrice] = useState(0);
 
-  const nftLink = `/assets/${nftItem.id}?isListed=${isListed}`;
+  const nftLink = `/nfts/${nftItem.id}?isListed=${isListed}`;
 
   useEffect(() => {
     const listing = listings.find((listing) => listing.asset.id === nftItem.id);
