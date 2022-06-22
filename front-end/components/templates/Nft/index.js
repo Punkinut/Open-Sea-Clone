@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useState } from "react";
-import { useWeb3 } from "@3rdweb/hooks";
-import { ThirdwebSDK } from "@3rdweb/sdk";
 import { useRouter } from "next/router";
 import { GlobalStore } from "../../../stores/GlobalStore/index.store";
 import { observer } from "mobx-react-lite";
 import { toJS } from "mobx";
+import NFTImage from "../../molecules/NFTImage";
+import NFTDetails from "../../molecules/NFTDetails";
+import styles from "./styles";
 
 function NftTemplate() {
   const router = useRouter();
@@ -16,14 +17,30 @@ function NftTemplate() {
 
   const { state } = store;
   const nfts = toJS(state.nfts);
+  const collection = toJS(state.collection);
 
   const selectedNft = () => {
     if (nfts.length !== 0) {
-      return nfts.filter((nft) => nft.id === router.query.nftId)[0];
+      return nfts.find((nft) => nft.id === router.query.nftId);
     }
   };
 
-  return <div>NftTemplate</div>;
+  return (
+    <div>
+      <div className={styles.wrapper}>
+        <div className={styles.container}>
+          <div className={styles.topContent}>
+            <div className={styles.nftImgContainer}>
+              <NFTImage selectedNft={selectedNft()} />
+            </div>
+            <div className={styles.detailsContainer}>
+              <NFTDetails selectedNft={selectedNft()} collection={collection} />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }
 
 export default observer(NftTemplate);
