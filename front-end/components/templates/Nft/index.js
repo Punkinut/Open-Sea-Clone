@@ -5,6 +5,7 @@ import { observer } from "mobx-react-lite";
 import { toJS } from "mobx";
 import NFTImage from "../../molecules/NFTImage";
 import NFTDetails from "../../molecules/NFTDetails";
+import NFTItemActivity from "../../molecules/NFTItemActivity";
 import styles from "./styles";
 
 function NftTemplate() {
@@ -37,6 +38,7 @@ function NftTemplate() {
               <NFTDetails selectedNft={selectedNft()} collection={collection} />
             </div>
           </div>
+          <NFTItemActivity />
         </div>
       </div>
     </div>

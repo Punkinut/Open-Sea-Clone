@@ -21,6 +21,25 @@ function NFTDetails({ selectedNft, collection }) {
           </div>
         </div>
       </div>
+      <div className={styles.actionButtonsContainer}>
+        <div className={styles.actionButtons}>
+          <div className={styles.actionButtonStart}>
+            <MdRefresh />
+          </div>
+          <div className={styles.divider}></div>
+          <div className={styles.actionButton}>
+            <RiShareBoxLine />
+          </div>
+          <div className={styles.divider}></div>
+          <div className={styles.actionButton}>
+            <FiMoreVertical />
+          </div>
+          <div className={styles.divider}></div>
+          <div className={styles.actionButtonEnd}>
+            <GiShare />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

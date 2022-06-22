@@ -9,7 +9,9 @@ const styles = {
   likeIcon: `mr-1`,
   actionButtonsContainer: `w-44`,
   actionButtons: `flex container justify-between text-[1.4rem] border-2 rounded-lg`,
-  actionButton: `my-2 ml-2`,
+  actionButton: `my-2`,
+  actionButtonStart: `my-2 ml-2`,
+  actionButtonEnd: `my-2 mr-2`,
   divider: `border-r-2`,
 };
 
