@@ -6,13 +6,14 @@ import { GlobalStore } from "../../../stores/GlobalStore/index.store";
 import { observer } from "mobx-react-lite";
 
 function NftTemplate() {
-  // const { provider } = useWeb3();
-  // const [selectedNft, setSelectedNft] = useState();
-  // const router = useRouter();
+  const [store] = useState(() => new GlobalStore());
 
-  // const [store] = useState(() => new GlobalStore());
-  // const { state } = store;
-  // const { nfts, listings, collection } = state;
+  useEffect(() => {
+    store.loadState();
+  }, [store]);
+
+  const { state } = store;
+  const { nfts, listings, collection } = state;
 
   return <div>NftTemplate</div>;
 }
