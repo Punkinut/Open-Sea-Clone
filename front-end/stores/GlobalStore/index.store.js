@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, toJS } from "mobx";
 
 export class GlobalStore {
   state;
@@ -18,28 +18,28 @@ export class GlobalStore {
     const storedListings = localStorage.getItem("listings");
     const storedCollection = localStorage.getItem("collection");
     if (storedNfts) {
-      this.state.nfts = storedNfts;
+      this.state.nfts = JSON.parse(storedNfts);
     }
     if (storedListings) {
-      this.state.listings = storedListings;
+      this.state.listings = JSON.parse(storedListings);
     }
     if (storedCollection) {
-      this.state.collection = storedCollection;
+      this.state.collection = JSON.parse(storedCollection);
     }
   }
 
   setNfts(nfts) {
     this.state.nfts = nfts;
-    localStorage.setItem("nfts", JSON.stringify(nfts));
+    localStorage.setItem("nfts", JSON.stringify(toJS(nfts)));
   }
 
   setListings(listings) {
     this.state.listings = listings;
-    localStorage.setItem("listings", JSON.stringify(listings));
+    localStorage.setItem("listings", JSON.stringify(toJS(listings)));
   }
 
   setCollection(collection) {
     this.state.collection = collection;
-    localStorage.setItem("collection", JSON.stringify(collection));
+    localStorage.setItem("collection", JSON.stringify(toJS(collection)));
   }
 }
